@@ -1,0 +1,41 @@
+name: Main
+
+on:
+  schedule:
+    # * is a wildcard that matches any value
+    # */2 means every 2
+    # syntax is in the pattern of cron: minute hour day(month) month day(week)
+    - cron:  '0 */2 * * *'
+  workflow_dispatch:
+    inputs:
+      zonneplanConfirmLink:
+        description: "Zonneplan E-Mail Login Link"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+    - name: Run
+      env:
+        ZONNEPLAN_REFRESH_TOKEN: ${{secrets.ZONNEPLAN_REFRESH_TOKEN}}
+        ZONNEPLAN_ACCESS_TOKEN: ${{secrets.ZONNEPLAN_ACCESS_TOKEN}}
+        ZONNEPLAN_TOKEN_TYPE: ${{secrets.ZONNEPLAN_TOKEN_TYPE}}
+        ZONNEPLAN_EXPIRY_DATE: ${{secrets.ZONNEPLAN_EXPIRY_DATE}}
+        ZONNEPLAN_CONFIRM_LINK: ${{github.event.inputs.zonneplanConfirmLink}}
+        ZONNEPLAN_EMAIL: ${{secrets.ZONNEPLAN_EMAIL}}
+        GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+        GITHUB_REPOSITORY: ${{github.repository}}
+        INFLUXDB_TOKEN: ${{secrets.INFLUXDB_TOKEN}}
+        INFLUXDB_URL: 'https://us-east-1-1.aws.cloud2.influxdata.com'
+        INFLUXDB_ORG: 'Production'
+        INFLUXDB_BUCKET: 'zonneplan'
+      run: |
+       npm i
+       node index.js
