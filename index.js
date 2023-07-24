@@ -131,8 +131,6 @@ let influxdbBucket = getEnv('INFLUXDB_BUCKET', true);
                 continue;
             }
 
-            
-
             // Write to Database
             const point = new Point('price_per_hour')
                 .tag('tariff_group', record.tariff_group)
