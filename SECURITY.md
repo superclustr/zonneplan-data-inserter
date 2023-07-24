@@ -1,4 +1,4 @@
-## Security Policy
+# Security Policy
 
 Our aim is to keep this project as secure as possible. However, if you discover a security issue, please follow the guidelines below to report it to us.
 
