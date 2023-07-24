@@ -28,7 +28,7 @@ npm run start
 
 ## Configuration
 
-The application requires several environment variables to function correctly, including details for the Zonneplan API and the InfluxDB. These environment variables need to be set in the GitHub Secrets.
+The application requires several environment variables to function correctly, including details for the Zonneplan API and the InfluxDB. Sensitive environment variables are recommended to be set in the GitHub Secrets or securely on stored/accessed on the host.
 
 Here is a list of the required environment variables:
 
