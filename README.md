@@ -1,6 +1,6 @@
 # Zonneplan Energy Data Inserter
 
-The Zonneplan Energy Data Inserter is a Node.js application designed to regularly insert energy data into an InfluxDB database. This data is fetched from the energy provider Zonneplan, and includes information such as the hourly energy price and sustainability scores.
+The [Zonneplan](https://www.zonneplan.nl/) Energy Data Inserter is a Node.js application designed to regularly insert energy data into an InfluxDB database. This data is fetched from the energy provider Zonneplan, and includes information such as the hourly energy price and sustainability scores.
 
 The application is designed to run on GitHub Actions, and is scheduled via the `main.yaml` workflow. The workflow can also be manually triggered if needed.
 
