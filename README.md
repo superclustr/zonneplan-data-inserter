@@ -32,11 +32,11 @@ The application requires several environment variables to function correctly, in
 
 Here is a list of the required environment variables:
 
-- `ZONNEPLAN_REFRESH_TOKEN` OAuth Refresh Token (Should be connected to a GitHub Secret with the same name)
-- `ZONNEPLAN_ACCESS_TOKEN` OAuth Access Token (Should be connected to a GitHub Secret with the same name)
-- `ZONNEPLAN_EXPIRY_DATE` OAuth Access Token Expiry Date ISO 8601 formatted (Should be connected to a GitHub Secret with the same name)
+- `ZONNEPLAN_REFRESH_TOKEN` OAuth Refresh Token (Connect to a GitHub Secret with the same name)
+- `ZONNEPLAN_ACCESS_TOKEN` OAuth Access Token (Connect to a GitHub Secret with the same name)
+- `ZONNEPLAN_EXPIRY_DATE` OAuth Access Token Expiry Date ISO 8601 formatted (Connect to a GitHub Secret with the same name)
 - `ZONNEPLAN_CONFIRM_LINK` Optionally, validate a Zonneplan Login Confirmation Link. Ideally via Manual Workflow execution.
-- `ZONNEPLAN_TOKEN_TYPE` Stores Zonneplan OAuth Access Token Type (Should be connected to a GitHub Secret with the same name)
+- `ZONNEPLAN_TOKEN_TYPE` Stores Zonneplan OAuth Access Token Type (Connect to a GitHub Secret with the same name)
 - `ZONNEPLAN_EMAIL` You E-Mail to login to Zonneplan. Please use a throw-away account, not your actual account (Only accesses semi-public data).
 - `GITHUB_TOKEN` A GitHub Token with Read/Write Access to your Repositories Secrets.
 - `GITHUB_REPOSITORY` The Name of your Repository (e.g. 'superclustr/zonneplan-scraper')
