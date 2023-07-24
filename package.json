@@ -1,7 +1,7 @@
 {
-  "name": "zonneplan-scraper",
+  "name": "zonneplan-data-inserter",
   "version": "1.0.0",
-  "description": "Scrapes Energy Price Data from Zonneplan",
+  "description": "Inserts Energy Price Data from Zonneplan into InfluxDB ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
