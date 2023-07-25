@@ -28,7 +28,7 @@ npm run start
 
 ## Configuration
 
-The application requires several environment variables to function correctly, including details for the Zonneplan API and the InfluxDB. Sensitive environment variables are recommended to be set in the GitHub Secrets or securely stored on the host.
+The application requires several environment variables to function correctly, including details for the Zonneplan API and the InfluxDB. Sensitive environment variables are recommended to be set in the GitHub Secrets.
 
 Here is a list of the required environment variables:
 
@@ -37,10 +37,10 @@ Here is a list of the required environment variables:
 - `ZONNEPLAN_EXPIRY_DATE` OAuth Access Token Expiry Date ISO 8601 formatted (Connect to a GitHub Secret with the same name)
 - `ZONNEPLAN_CONFIRM_LINK` Optionally, validate a Zonneplan Login Confirmation Link. Ideally via Manual Workflow execution.
 - `ZONNEPLAN_TOKEN_TYPE` Stores Zonneplan OAuth Access Token Type (Connect to a GitHub Secret with the same name)
-- `ZONNEPLAN_EMAIL` You E-Mail to login to Zonneplan. Please use a throw-away account, not your actual account (Only accesses semi-public data).
-- `GITHUB_TOKEN` A GitHub Token with Read/Write Access to your Repositories Secrets.
+- `ZONNEPLAN_EMAIL` Your E-Mail to login to Zonneplan. Please use a throw-away account, not your actual account (Only accesses semi-public data).
+- `GITHUB_TOKEN` A GitHub Token with Write Access to your Repository Secrets.
 - `GITHUB_REPOSITORY` The Name of your Repository (e.g. 'superclustr/zonneplan-scraper')
-- `INFLUXDB_TOKEN` A InfluxDB Token you created to Access the Database.
+- `INFLUXDB_TOKEN` An InfluxDB Token you created to Access the Database.
 - `INFLUXDB_URL` The Host of your Influx Database (e.g. 'https://us-east-1-1.aws.cloud2.influxdata.com')
 - `INFLUXDB_ORG` The Organization of your Influx Database (e.g. 'acme')
 - `INFLUXDB_BUCKET` The Bucket name you want to feed data into (e.g. 'zonneplan'). Beware this pre-defines the Monitoring Bucket name ending with '_monitoring'!
