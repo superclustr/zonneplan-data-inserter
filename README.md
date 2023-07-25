@@ -69,6 +69,28 @@ Please refer to the [Zonneplan InfluxDB Documentation](./docs/database_documenta
 
 Contributions are welcome! Please create an issue if you have any suggestions, questions or bug reports. If you wish to contribute to the code, feel free to create a pull request. Be sure to update the `main.yaml` workflow file if needed to reflect your changes.
 
+## Resources
+
+## Resources
+
+To help you kickstart your journey with Energy Metrics, we've created an example Grafana Dashboard that you can readily use.
+
+<img src="grafana-dashboard-example.png" width="628"/>
+
+Before you proceed, please ensure that your Grafana and InfluxDB instances are correctly set up and that Grafana has successful connectivity to your InfluxDB database. Follow these steps to set up the example dashboard:
+
+1. Download the [`grafana-dashboard-example.json`](./grafana-dashboard-example.json) file. This file contains the dashboard configuration.
+2. Open your Grafana instance in your web browser.
+3. Click on the `+` button on the left-hand side panel or hover over it and then click on `Import`.
+4. In the Import Dashboard dialog, click on `Upload .json file`.
+5. Select the `grafana-dashboard-example.json` file that you downloaded earlier.
+6. On the next screen, you may need to select the relevant data source you wish to use for the dashboard from the `Options` section. If you have only one data source, it should be selected automatically.
+7. Click on `Import`. Your dashboard should now be ready and you can navigate to it by clicking on `Dashboards` > `Manage` on the left-hand side panel.
+
+This dashboard is a great starting point and we encourage you to customize it further according to your specific needs. 
+
+Happy data exploring!
+
 ## Contact
 
 For additional data or information, reach out to me at rroeper@superclustr.net.
