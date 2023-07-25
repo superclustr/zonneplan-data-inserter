@@ -71,8 +71,6 @@ Contributions are welcome! Please create an issue if you have any suggestions, q
 
 ## Resources
 
-## Resources
-
 To help you kickstart your journey with Energy Metrics, we've created an example Grafana Dashboard that you can readily use.
 
 <img src="grafana-dashboard-example.png" width="628"/>
