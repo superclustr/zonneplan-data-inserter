@@ -22,7 +22,14 @@ The **`zonneplan_monitoring`** bucket contains logs from the main service that p
 - `created`: The number of data points created.
 - `updated`: The number of data points updated.
 
-The `write` measurement has a `measurement` tag key, which refers to the specific measurement in the `zonneplan` bucket that has been reported on. 
+The `write` measurement has a `measurement` tag key, which refers to the specific measurement in the `zonneplan` bucket that has been reported on.
+
+This bucket also contains an `error` measurement with the following fields:
+
+- `message`: The JavaScript error message.
+- `name`: The JavaScript error name.
+
+This measurement has a `reporter` tag key, referring to the specific service that reported the error (e.g., `superclustr/zonneplan-data-inserter`). It also has a `type` tag key with values `fatal` for fatal errors, `warning` for warnings, and `neutral` for neutral errors.
 
 ## Data Retention
 
