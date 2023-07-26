@@ -18,6 +18,8 @@ npm install
 ```
 
 #### 2. Run
+Before running the application, ensure all environment variables from the Configuration section are set accordingly either in your local environment or in the command line. 
+
 To execute the Zonneplan Energy Data Inserter please run:
 
 ```bash
@@ -32,18 +34,20 @@ The application requires several environment variables to function correctly, in
 
 Here is a list of the required environment variables:
 
-- `ZONNEPLAN_REFRESH_TOKEN` OAuth Refresh Token (Connect to a GitHub Secret with the same name)
-- `ZONNEPLAN_ACCESS_TOKEN` OAuth Access Token (Connect to a GitHub Secret with the same name)
-- `ZONNEPLAN_EXPIRY_DATE` OAuth Access Token Expiry Date ISO 8601 formatted (Connect to a GitHub Secret with the same name)
-- `ZONNEPLAN_CONFIRM_LINK` Optionally, validate a Zonneplan Login Confirmation Link. Ideally via Manual Workflow execution.
-- `ZONNEPLAN_TOKEN_TYPE` Stores Zonneplan OAuth Access Token Type (Connect to a GitHub Secret with the same name)
-- `ZONNEPLAN_EMAIL` Your E-Mail to login to Zonneplan. Please use a throw-away account, not your actual account (Only accesses semi-public data).
-- `GITHUB_TOKEN` A GitHub Token with Write Access to your Repository Secrets.
-- `GITHUB_REPOSITORY` The Name of your Repository (e.g. 'superclustr/zonneplan-scraper')
-- `INFLUXDB_TOKEN` An InfluxDB Token you created to Access the Database.
-- `INFLUXDB_URL` The Host of your Influx Database (e.g. 'https://us-east-1-1.aws.cloud2.influxdata.com')
-- `INFLUXDB_ORG` The Organization of your Influx Database (e.g. 'acme')
-- `INFLUXDB_BUCKET` The Bucket name you want to feed data into (e.g. 'zonneplan'). Beware this pre-defines the Monitoring Bucket name ending with '_monitoring'!
+| Variable | Description |
+| ----------- | ----------- |
+| `ZONNEPLAN_REFRESH_TOKEN` | OAuth Refresh Token (Connect to a GitHub Secret with the same name) |
+| `ZONNEPLAN_ACCESS_TOKEN` | OAuth Access Token (Connect to a GitHub Secret with the same name) |
+| `ZONNEPLAN_EXPIRY_DATE` | OAuth Access Token Expiry Date ISO 8601 formatted (Connect to a GitHub Secret with the same name) |
+| `ZONNEPLAN_CONFIRM_LINK` | Optionally, validate a Zonneplan Login Confirmation Link. Ideally via Manual Workflow execution. |
+| `ZONNEPLAN_TOKEN_TYPE` | Stores Zonneplan OAuth Access Token Type (Connect to a GitHub Secret with the same name) |
+| `ZONNEPLAN_EMAIL` | Your E-Mail to login to Zonneplan. Please use a throw-away account, not your actual account (Only accesses semi-public data). |
+| `GITHUB_TOKEN` | A GitHub Token with Write Access to your Repository Secrets. |
+| `GITHUB_REPOSITORY` | The Name of your Repository (e.g. 'superclustr/zonneplan-scraper') |
+| `INFLUXDB_TOKEN` | An InfluxDB Token you created to Access the Database. |
+| `INFLUXDB_URL` | The Host of your Influx Database (e.g. 'https://us-east-1-1.aws.cloud2.influxdata.com') |
+| `INFLUXDB_ORG` | The Organization of your Influx Database (e.g. 'acme') |
+| `INFLUXDB_BUCKET` | The Bucket name you want to feed data into (e.g. 'zonneplan'). Beware this pre-defines the Monitoring Bucket name ending with '_monitoring'! |
 
 For detailed instructions on how to configure these, please refer to the [GitHub Secrets documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
@@ -64,6 +68,8 @@ The code also handles exceptions and will write any fatal errors to the InfluxDB
 ## Database Documentation
 
 Please refer to the [Zonneplan InfluxDB Documentation](./docs/database_documentation.md) for more details about the database structure and how to extract data from it.
+
+You can request access to our hosted database [here](https://docs.google.com/forms/d/e/1FAIpQLSfWjyc-gmVGMahbhhRZRLeXxzhH-PkLEOGGLYXcA9l9xdLKqQ/viewform?usp=sf_link).
 
 ## Contributing
 
