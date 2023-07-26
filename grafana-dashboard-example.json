@@ -15,7 +15,7 @@
       }
     ]
   },
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 12,
@@ -50,7 +50,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "linear",
+            "lineInterpolation": "smooth",
             "lineWidth": 0,
             "pointSize": 1,
             "scaleDistribution": {
@@ -93,7 +93,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "red",
+                  "fixedColor": "#F2495C",
                   "mode": "fixed"
                 }
               }
@@ -112,7 +112,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "#fcbd1a",
                   "mode": "fixed"
                 }
               }
@@ -131,7 +131,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "green",
+                  "fixedColor": "#45c151",
                   "mode": "fixed"
                 }
               }
@@ -146,7 +146,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#6c333a",
+                  "fixedColor": "#442024",
                   "mode": "fixed"
                 }
               },
@@ -165,7 +165,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#553c23",
+                  "fixedColor": "#4d401f",
                   "mode": "fixed"
                 }
               },
@@ -184,7 +184,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#2b4628",
+                  "fixedColor": "#233b26",
                   "mode": "fixed"
                 }
               },
@@ -244,113 +244,9 @@
           "refId": "B"
         }
       ],
-      "title": "Energy Prices",
+      "title": "Live Energy Prices",
       "transparent": true,
       "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
-      },
-      "description": "This visualization offers a quick, easy-to-understand graphical representation of the percentage of sustainable energy at any given point in time.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 33
-              },
-              {
-                "color": "green",
-                "value": 66
-              }
-            ]
-          },
-          "unit": "percent"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "sustainability_score high"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "During High Prices"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "sustainability_score normal"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "During Normal Prices"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "sustainability_score low"
-            },
-            "properties": [
-              {
-                "id": "displayName",
-                "value": "During Low Prices"
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 4,
-      "options": {
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showThresholdLabels": false,
-        "showThresholdMarkers": true
-      },
-      "pluginVersion": "10.0.3-cloud.2.14737d80",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
-          },
-          "query": "from(bucket: \"zonneplan\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"price_per_hour\")\n  |> filter(fn: (r) => r[\"_field\"] == \"sustainability_score\")\n  |> last()\n",
-          "refId": "A"
-        }
-      ],
-      "title": "Sustainability Score",
-      "transparent": true,
-      "type": "gauge"
     },
     {
       "datasource": {
@@ -378,7 +274,7 @@
               "viz": false
             },
             "lineInterpolation": "linear",
-            "lineWidth": 3,
+            "lineWidth": 2,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -418,7 +314,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "red",
+                  "fixedColor": "#F2495C",
                   "mode": "fixed"
                 }
               },
@@ -437,7 +333,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "#fcbd1a",
                   "mode": "fixed"
                 }
               },
@@ -456,7 +352,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "green",
+                  "fixedColor": "#45c151",
                   "mode": "fixed"
                 }
               },
@@ -469,10 +365,10 @@
         ]
       },
       "gridPos": {
-        "h": 7,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 7
+        "y": 0
       },
       "id": 5,
       "options": {
@@ -524,154 +420,66 @@
         "type": "influxdb",
         "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
       },
-      "description": "Visualizes the tariff groups (high, normal, low) against time, with the color intensity representing the electricity price. This will provide a bird's eye view of how tariff groups and electricity prices interact over time.",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "scaleDistribution": {
-              "type": "linear"
-            }
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "id": 3,
-      "options": {
-        "calculate": false,
-        "cellGap": 1,
-        "color": {
-          "exponent": 0.5,
-          "fill": "dark-orange",
-          "mode": "scheme",
-          "reverse": false,
-          "scale": "exponential",
-          "scheme": "RdYlGn",
-          "steps": 128
-        },
-        "exemplars": {
-          "color": "rgba(255,0,255,0.7)"
-        },
-        "filterValues": {
-          "le": 1e-9
-        },
-        "legend": {
-          "show": true
-        },
-        "rowsFrame": {
-          "layout": "unknown"
-        },
-        "tooltip": {
-          "show": true,
-          "yHistogram": false
-        },
-        "yAxis": {
-          "axisPlacement": "hidden",
-          "reverse": true
-        }
-      },
-      "pluginVersion": "10.0.3-cloud.2.14737d80",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
-          },
-          "query": "from(bucket: \"zonneplan\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"price_per_hour\")\n  |> filter(fn: (r) => r[\"_field\"] == \"electricity_price\")\n  |> filter(fn: (r) => r[\"tariff_group\"] == \"high\" or r[\"tariff_group\"] == \"normal\" or r[\"tariff_group\"] == \"low\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")\n",
-          "refId": "A"
-        }
-      ],
-      "title": "Heatmap of Tariff Groups vs Time",
-      "transparent": true,
-      "type": "heatmap"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
-      },
-      "description": "Write Operations on Price Database",
+      "description": "This visualization offers a quick, easy-to-understand graphical representation of the percentage of sustainable energy at any given point in time.",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "stepBefore",
-            "lineStyle": {
-              "fill": "solid"
-            },
-            "lineWidth": 4,
-            "pointSize": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "always",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "#F2495C",
                 "value": null
+              },
+              {
+                "color": "#fcbd1a",
+                "value": 33
+              },
+              {
+                "color": "#45c151",
+                "value": 66
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "created price_per_hour"
+              "options": "sustainability_score high"
             },
             "properties": [
               {
                 "id": "displayName",
-                "value": "Create Operation"
+                "value": "During High Prices"
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "updated price_per_hour"
+              "options": "sustainability_score normal"
             },
             "properties": [
               {
                 "id": "displayName",
-                "value": "Update Operation"
+                "value": "During Normal Prices"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sustainability_score low"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "During Low Prices"
               }
             ]
           }
@@ -680,36 +488,39 @@
       "gridPos": {
         "h": 7,
         "w": 12,
-        "x": 12,
-        "y": 14
+        "x": 0,
+        "y": 8
       },
-      "id": 2,
+      "id": 4,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {
+          "titleSize": 16
         }
       },
-      "pluginVersion": "10.0.3-cloud.2.14737d80",
+      "pluginVersion": "10.0.3-cloud.4.aed62623",
       "targets": [
         {
           "datasource": {
             "type": "influxdb",
             "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
           },
-          "query": "import \"math\"\nfrom(bucket: \"zonneplan_monitoring\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"write\")",
+          "query": "from(bucket: \"zonneplan\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"price_per_hour\")\n  |> filter(fn: (r) => r[\"_field\"] == \"sustainability_score\")\n  |> last()\n",
           "refId": "A"
         }
       ],
-      "title": "Database Operations",
+      "title": "Sustainability Score",
       "transparent": true,
-      "type": "timeseries"
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -740,7 +551,7 @@
             "lineStyle": {
               "fill": "solid"
             },
-            "lineWidth": 3,
+            "lineWidth": 2,
             "pointSize": 5,
             "scaleDistribution": {
               "type": "linear"
@@ -764,7 +575,7 @@
                 "value": null
               },
               {
-                "color": "red",
+                "color": "#F2495C",
                 "value": 80
               }
             ]
@@ -780,7 +591,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#f7bdc3",
+                  "fixedColor": "#5d3136",
                   "mode": "fixed"
                 }
               },
@@ -809,7 +620,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#ffdbb7",
+                  "fixedColor": "#7f6a35",
                   "mode": "fixed"
                 }
               },
@@ -838,7 +649,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "#bde4b8",
+                  "fixedColor": "#274e2b",
                   "mode": "fixed"
                 }
               },
@@ -867,7 +678,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "red",
+                  "fixedColor": "#F2495C",
                   "mode": "fixed"
                 }
               },
@@ -886,7 +697,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "#fcbd1a",
                   "mode": "fixed"
                 }
               },
@@ -905,7 +716,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "green",
+                  "fixedColor": "#45c151",
                   "mode": "fixed"
                 }
               },
@@ -918,10 +729,10 @@
         ]
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 12,
-        "x": 0,
-        "y": 15
+        "x": 12,
+        "y": 8
       },
       "id": 6,
       "options": {
@@ -966,10 +777,10 @@
       },
       "description": "Errors on Price Database",
       "gridPos": {
-        "h": 7,
-        "w": 12,
+        "h": 6,
+        "w": 8,
         "x": 0,
-        "y": 21
+        "y": 15
       },
       "id": 7,
       "options": {
@@ -1022,11 +833,11 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "linear",
             "lineStyle": {
               "fill": "solid"
             },
-            "lineWidth": 4,
+            "lineWidth": 2,
             "pointSize": 1,
             "scaleDistribution": {
               "type": "linear"
@@ -1066,7 +877,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "red",
+                  "fixedColor": "#F2495C",
                   "mode": "fixed"
                 }
               }
@@ -1075,10 +886,10 @@
         ]
       },
       "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 21
+        "h": 6,
+        "w": 8,
+        "x": 8,
+        "y": 15
       },
       "id": 8,
       "options": {
@@ -1107,6 +918,136 @@
       "title": "Database Errors",
       "transparent": true,
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
+      },
+      "description": "Write Operations on Price Database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "stepAfter",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 2,
+            "pointSize": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "created price_per_hour"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Create Operation"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#45c151",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "updated price_per_hour"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Update Operation"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 8,
+        "x": 16,
+        "y": 15
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.0.3-cloud.2.14737d80",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
+          },
+          "query": "import \"math\"\nfrom(bucket: \"zonneplan_monitoring\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"write\")",
+          "refId": "A"
+        }
+      ],
+      "title": "Database Operations",
+      "transparent": true,
+      "type": "timeseries"
     }
   ],
   "refresh": "",
@@ -1117,7 +1058,7 @@
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-48h",
     "to": "now+24h"
   },
   "timepicker": {
@@ -1137,6 +1078,6 @@
   "timezone": "",
   "title": "Energy Metrics",
   "uid": "a37c8bb4-7231-4d01-b342-d0e1bfc81948",
-  "version": 48,
+  "version": 66,
   "weekStart": ""
 }
