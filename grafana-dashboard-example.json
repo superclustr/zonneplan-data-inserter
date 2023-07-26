@@ -56,7 +56,7 @@
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "never",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -1059,7 +1059,7 @@
   },
   "time": {
     "from": "now-48h",
-    "to": "now+24h"
+    "to": "now+48h"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -1078,6 +1078,6 @@
   "timezone": "",
   "title": "Energy Metrics",
   "uid": "a37c8bb4-7231-4d01-b342-d0e1bfc81948",
-  "version": 66,
+  "version": 72,
   "weekStart": ""
 }
