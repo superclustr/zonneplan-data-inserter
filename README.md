@@ -81,6 +81,8 @@ To help you kickstart your journey with Energy Metrics, we've created an example
 
 <img src="grafana-dashboard-example.png" width="628"/>
 
+[See Demo](https://snapshots.raintank.io/dashboard/snapshot/hJvn2lCd5KCw4pgezP1bMwSsHdXCJKWr?orgId=2)
+
 Before you proceed, please ensure that your Grafana and InfluxDB instances are correctly set up and that Grafana has successful connectivity to your InfluxDB database. Follow these steps to set up the example dashboard:
 
 1. Download the [`grafana-dashboard-example.json`](./grafana-dashboard-example.json) file. This file contains the dashboard configuration.
