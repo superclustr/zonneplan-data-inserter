@@ -231,7 +231,7 @@
             "type": "influxdb",
             "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
           },
-          "query": "import \"math\"\nfrom(bucket: \"zonneplan\")\n  |> range(start: now(), stop: 24h)\n  |> filter(fn: (r) => r._measurement == \"price_per_hour\")\n  |> filter(fn: (r) => r._field == \"electricity_price\")\n  |> map(fn: (r) => ({ r with _value: float(v: math.round(x: float(v: r._value))) / 100.0 }))",
+          "query": "import \"math\"\nfrom(bucket: \"zonneplan\")\n  |> range(start: now(), stop: v.timeRangeStop)\n  |> filter(fn: (r) => r._measurement == \"price_per_hour\")\n  |> filter(fn: (r) => r._field == \"electricity_price\")\n  |> map(fn: (r) => ({ r with _value: float(v: math.round(x: float(v: r._value))) / 100.0 }))",
           "refId": "A"
         },
         {
@@ -240,7 +240,7 @@
             "uid": "a6a15cf2-d882-467c-bf22-324c4b2d46e5"
           },
           "hide": false,
-          "query": "import \"math\"\n\nfrom(bucket: \"zonneplan\")\n  |> range(start: -24h, stop: now())\n  |> filter(fn: (r) => r._measurement == \"price_per_hour\" and r._field == \"electricity_price\")\n  |> map(fn: (r) => ({\n      r with \n      _value: float(v: math.round(x: float(v: r._value))) / 100.0,\n      tariff_group: if r.tariff_group == \"high\" then \"high_old\"\n                    else if r.tariff_group == \"normal\" then \"normal_old\"\n                    else if r.tariff_group == \"low\" then \"low_old\"\n                    else r.tariff_group\n    }))\n",
+          "query": "import \"math\"\n\nfrom(bucket: \"zonneplan\")\n  |> range(start: v.timeRangeStart, stop: now())\n  |> filter(fn: (r) => r._measurement == \"price_per_hour\" and r._field == \"electricity_price\")\n  |> map(fn: (r) => ({\n      r with \n      _value: float(v: math.round(x: float(v: r._value))) / 100.0,\n      tariff_group: if r.tariff_group == \"high\" then \"high_old\"\n                    else if r.tariff_group == \"normal\" then \"normal_old\"\n                    else if r.tariff_group == \"low\" then \"low_old\"\n                    else r.tariff_group\n    }))\n",
           "refId": "B"
         }
       ],
@@ -1078,6 +1078,6 @@
   "timezone": "",
   "title": "Energy Metrics",
   "uid": "a37c8bb4-7231-4d01-b342-d0e1bfc81948",
-  "version": 72,
+  "version": 75,
   "weekStart": ""
 }
